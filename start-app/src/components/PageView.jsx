@@ -17,22 +17,24 @@ function PageView({title}) {
     }
     const handleAdd = (e) => {
         e.preventDefault()
-        let BlockType = e.target.__reactProps$upud89xsyq8.name
-                        // he tenido que añadir propiedad de css para que funcione bien con svg's
+        let blockType = e.target.dataset.name
+        console.log(blockType)
+                // he tenido que añadir propiedad de css para que funcione bien con svg's
+                //solo con dataset ( data-whatever) he podido acceder a la propiedad aunque haga refresh
             //switch
 
       }
   
   return (
     <div className="PageView">
-      <div ref={ref} className="navbar">
+      <div ref={ref} name="current" className="navbar">
         <IoMdAdd className='button-nav' onClick={handleMenu}/>
 
-        <MdFormatQuote name="quote" onClick={handleAdd}/>
-        <MdOutlineAddPhotoAlternate name="photo" onClick={handleAdd}/>
-        <BiText name="text" onClick={handleAdd}/>
-        <MdAudiotrack name="audio" onClick={handleAdd}/>
-        <MdAddTask name="task" onClick={handleAdd}/>
+        <MdFormatQuote data-name="quote" onClick={handleAdd}/>
+        <MdOutlineAddPhotoAlternate data-name="photo" onClick={handleAdd}/>
+        <BiText data-name="text" onClick={handleAdd}/>
+        <MdAudiotrack data-name="audio" onClick={handleAdd}/>
+        <MdAddTask data-name="task" onClick={handleAdd}/>
       </div>
       { title && <h1 className='title'>{title}</h1>}
       <div className='trello'>
